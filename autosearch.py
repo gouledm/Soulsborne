@@ -2,7 +2,8 @@ class autosearch:
     def search(find):
         from selenium import webdriver
         from selenium.webdriver.common.keys import Keys
-        driver = webdriver.Chrome('/Users/Gouled/Documents/Soulsborne/chromedriver')
+        from webdriver_manager.chrome import ChromeDriverManager
+        driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
         driver.get('https://lite.duckduckgo.com/lite/')
         search_bar = driver.find_element_by_xpath('//*[@id="lite_wrapper"]/form/input[1]')
         search_bar.send_keys(find + ' site:eldenring.wiki.fextralife.com')
